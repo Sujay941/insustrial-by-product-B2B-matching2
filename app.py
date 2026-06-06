@@ -330,7 +330,7 @@ if len(numeric_df.columns) > 1:
 # --------------------------------------------------
 st.subheader("Summary Statistics")
 st.dataframe(df.describe(include="all"))
-Advanced Analytics Page
+
 
 Add these charts:
 
