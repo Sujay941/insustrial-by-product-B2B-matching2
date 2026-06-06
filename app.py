@@ -334,7 +334,6 @@ st.dataframe(df.describe(include="all"))
 
 
 
-1. Fraud by Employment Type
 px.histogram(
     df,
     x="employment_type",
