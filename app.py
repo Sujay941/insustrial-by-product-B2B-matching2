@@ -363,9 +363,9 @@ fig = px.imshow(
 
 Most common words in fake jobs:
 
-from wordcloud import WordCloud
+## from wordcloud import WordCloud
 
-Use:
+
 
 df[df["fraudulent"]==1]["title"]
 Fraud Detection Page
