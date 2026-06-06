@@ -361,9 +361,10 @@ fig = px.imshow(
 )
 
 
-Most common words in fake jobs:
+st.subheader("Most Common Words in Fake Jobs")
 
-## from wordcloud import WordCloud
+
+ from wordcloud import WordCloud
 
 
 
