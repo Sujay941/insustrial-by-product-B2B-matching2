@@ -312,3 +312,96 @@ if len(numeric_df.columns) > 1:
 # --------------------------------------------------
 st.subheader("Summary Statistics")
 st.dataframe(df.describe(include="all"))
+Advanced Analytics Page
+
+Add these charts:
+
+1. Fraud by Employment Type
+px.histogram(
+    df,
+    x="employment_type",
+    color="fraudulent",
+    barmode="group"
+)
+2. Fraud by Experience Level
+px.histogram(
+    df,
+    x="required_experience",
+    color="fraudulent"
+)
+3. Fraud by Industry
+industry = df["industry"].value_counts().head(15)
+4. Fraud by Function
+function = df["function"].value_counts().head(15)
+5. Correlation Heatmap
+numeric = df.select_dtypes(include="number")
+
+corr = numeric.corr()
+
+fig = px.imshow(
+    corr,
+    text_auto=True
+)
+6. Word Cloud
+
+Most common words in fake jobs:
+
+from wordcloud import WordCloud
+
+Use:
+
+df[df["fraudulent"]==1]["title"]
+Fraud Detection Page
+
+Train model:
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+
+Features:
+
+title
+description
+requirements
+benefits
+
+Model:
+
+model = LogisticRegression()
+
+Prediction form:
+
+job_text = st.text_area(
+    "Paste Job Description"
+)
+
+if st.button("Check Fraud"):
+
+    prediction = model.predict(...)
+
+Output:
+
+st.success("Likely Genuine")
+
+or
+
+st.error("Potential Fake Job")
+Streamlit UI Enhancements
+
+Add:
+
+st.markdown("""
+<style>
+
+.main {
+    background:#F8FAFC;
+}
+
+[data-testid="metric-container"]{
+    border-radius:12px;
+    padding:15px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+</style>
+""",unsafe_allow_html=True)
