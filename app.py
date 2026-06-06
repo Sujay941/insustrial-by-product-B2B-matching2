@@ -332,7 +332,7 @@ st.subheader("Summary Statistics")
 st.dataframe(df.describe(include="all"))
 
 
-Add these charts:
+
 
 1. Fraud by Employment Type
 px.histogram(
