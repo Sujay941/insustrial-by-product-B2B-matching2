@@ -2,15 +2,33 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import streamlit as st
+
+st.set_page_config(
+    page_title="Fake Job Detection",
+    page_icon="💼",
+    layout="wide"
+)
+
+st.title("💼 Fake Job Posting Detection Dashboard")
+
+st.markdown("""
+### Features
+
+- Overview Dashboard
+- Advanced Analytics
+- Fraud Detection using Machine Learning
+- Business Insights
+- Interactive Visualizations
+
+Select a page from the left sidebar.
+""")
 
 # --------------------------------------------------
 # Page Config
 # --------------------------------------------------
-st.set_page_config(
-    page_title="Fake Job Detection Dashboard",
-    page_icon="💼",
-    layout="wide"
-)
+
+
 
 # --------------------------------------------------
 # Custom CSS
