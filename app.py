@@ -364,7 +364,28 @@ fig = px.imshow(
 st.subheader("Most Common Words in Fake Jobs")
 
 
- from wordcloud import WordCloud
+ # Word Cloud
+
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+
+st.subheader("Most Common Words in Fake Jobs")
+
+text = " ".join(
+    df[df["fraudulent"] == 1]["title"].fillna("")
+)
+
+wordcloud = WordCloud(
+    width=800,
+    height=400,
+    background_color="white"
+).generate(text)
+
+fig, ax = plt.subplots()
+ax.imshow(wordcloud)
+ax.axis("off")
+
+st.pyplot(fig)
 
 
 
@@ -376,18 +397,11 @@ Train model:
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 
-Features:
 
-title
-description
-requirements
-benefits
-
-Model:
 
 model = LogisticRegression()
 
-Prediction form:
+
 
 job_text = st.text_area(
     "Paste Job Description"
@@ -396,8 +410,6 @@ job_text = st.text_area(
 if st.button("Check Fraud"):
 
     prediction = model.predict(...)
-
-Output:
 
 st.success("Likely Genuine")
 
