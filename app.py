@@ -44,7 +44,7 @@ st.markdown("""
 
 @st.cache_data
 def load_data():
-    return pd.read_csv("data/fake_job_postings.csv")
+    return pd.read_csv("fake_job_postings.csv.zip")
 
 try:
     df = load_data()
