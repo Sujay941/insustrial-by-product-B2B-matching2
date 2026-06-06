@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -340,17 +341,16 @@ px.histogram(
     color="fraudulent",
     barmode="group"
 )
-2. Fraud by Experience Level
+
 px.histogram(
     df,
     x="required_experience",
     color="fraudulent"
 )
-3. Fraud by Industry
+
 industry = df["industry"].value_counts().head(15)
-4. Fraud by Function
+
 function = df["function"].value_counts().head(15)
-5. Correlation Heatmap
 numeric = df.select_dtypes(include="number")
 
 corr = numeric.corr()
@@ -359,7 +359,7 @@ fig = px.imshow(
     corr,
     text_auto=True
 )
-6. Word Cloud
+
 
 Most common words in fake jobs:
 
